@@ -67,7 +67,12 @@ jobs:
                        +ntfs                     \
                        +force_dex_wqhd           \
                        +morosound                \
-                       +boeffla_wl_blocker
+                       +boeffla_wl_blocker       \
+                       +fp_boost                 \
+                       +noaudit                  \
+                       +noswap                   \
+                       +nozram                   \
+                       +fake_config
           2>&1 | tee config.info
 
       - name: Install gcc-aarch64-linux-gnu
