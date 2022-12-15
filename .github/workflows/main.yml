@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        model: [ "G970F,G973F,G975F", "N975F" ]
+        model: [ "N975F" ]
 
     steps:
       - uses: actions/checkout@v3
@@ -54,6 +54,7 @@ jobs:
         run: |
           set -e -o pipefail
           ./cruelbuild config                    \
+                       os_patch_level=2022-10    \
                        model=${{ matrix.model }} \
                        name="Cruel-devel"        \
                        toolchain=$TOOLCHAIN      \
@@ -66,7 +67,7 @@ jobs:
                        +ntfs                     \
                        +force_dex_wqhd           \
                        +morosound                \
-                       +boeffla_wl_blocker       \
+                       +boeffla_wl_blocker
           2>&1 | tee config.info
 
       - name: Install gcc-aarch64-linux-gnu
